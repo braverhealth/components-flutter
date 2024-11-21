@@ -24,14 +24,18 @@ class CameraPreviewWidget extends StatelessWidget {
   const CameraPreviewWidget({
     super.key,
     required this.track,
+    this.primaryColor = LKColors.lkDarkBlue
   });
+
   final LocalVideoTrack? track;
+  final Color primaryColor;
+
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 360,
       height: 240,
-      color: LKColors.lkDarkBlue,
+      color: primaryColor,
       child: Center(
         child: track != null
             ? VideoTrackRenderer(track!)
