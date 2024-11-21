@@ -25,7 +25,10 @@ import 'no_track_widget.dart';
 class VideoTrackWidget extends StatelessWidget {
   const VideoTrackWidget({
     super.key,
+    this.primaryColor = LKColors.lkDarkBlue,
   });
+
+  final Color primaryColor;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +46,7 @@ class VideoTrackWidget extends StatelessWidget {
       builder: (BuildContext context, isMuted, child) => !isMuted &&
               trackCtx.videoTrack != null
           ? Container(
-              color: LKColors.lkDarkBlue,
+              color: primaryColor,
               child:
                   VideoTrackRenderer(trackCtx.videoTrack!, key: ValueKey(sid)))
           : const NoTrackWidget(),

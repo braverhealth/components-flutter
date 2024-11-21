@@ -25,7 +25,10 @@ import '../theme.dart';
 class NoTrackWidget extends StatelessWidget {
   const NoTrackWidget({
     super.key,
+    this.primaryColor = LKColors.lkDarkBlue,
   });
+
+  final Color primaryColor;
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +54,7 @@ class NoTrackWidget extends StatelessWidget {
     }
 
     return Container(
-      color: LKColors.lkDarkBlue,
+      color: primaryColor,
       child: Center(
         child: LayoutBuilder(
           builder: (context, constraints) => Icon(

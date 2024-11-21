@@ -26,12 +26,14 @@ class ChatWidget extends StatelessWidget {
     required this.messages,
     required this.onSend,
     required this.onClose,
+    this.primaryColor = LKColors.lkDarkBlue,
   });
 
   final List<ChatMessage> messages;
   final Function(String) onSend;
   final Function() onClose;
   final ScrollController _scrollController = ScrollController();
+  final Color primaryColor;
 
   List<Widget> _buildMessages(List<ChatMessage> messages) {
     List<Widget> msgWidgets = [];
@@ -69,7 +71,7 @@ class ChatWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: LKColors.lkDarkBlue,
+      color: primaryColor,
       padding: const EdgeInsets.all(1.0),
       child: Column(
         children: [
@@ -106,11 +108,11 @@ class ChatWidget extends StatelessWidget {
             ),
           ),
           Container(
-            color: LKColors.lkDarkBlue,
+            color: primaryColor,
             padding: const EdgeInsets.symmetric(horizontal: 5.0),
             child: MessageBar(
-              messageBarColor: LKColors.lkDarkBlue,
-              replyWidgetColor: LKColors.lkDarkBlue,
+              messageBarColor: primaryColor,
+              replyWidgetColor: primaryColor,
               onSend: (msg) {
                 onSend(msg);
                 scrollToBottom();
