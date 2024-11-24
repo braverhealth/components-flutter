@@ -14,6 +14,7 @@
 
 import 'package:flutter/material.dart';
 
+import 'package:flutter_webrtc/flutter_webrtc.dart' as rtc;
 import 'package:livekit_client/livekit_client.dart';
 import 'package:provider/provider.dart';
 
@@ -26,9 +27,11 @@ class VideoTrackWidget extends StatelessWidget {
   const VideoTrackWidget({
     super.key,
     this.primaryColor = LKColors.lkDarkBlue,
+    this.fit = rtc.RTCVideoViewObjectFit.RTCVideoViewObjectFitContain,
   });
 
   final Color primaryColor;
+  final rtc.RTCVideoViewObjectFit fit;
 
   @override
   Widget build(BuildContext context) {
@@ -43,13 +46,17 @@ class VideoTrackWidget extends StatelessWidget {
 
     return Selector<TrackReferenceContext, bool>(
       selector: (context, isMuted) => trackCtx.isMuted,
-      builder: (BuildContext context, isMuted, child) => !isMuted &&
-              trackCtx.videoTrack != null
-          ? Container(
-              color: primaryColor,
-              child:
-                  VideoTrackRenderer(trackCtx.videoTrack!, key: ValueKey(sid)))
-          : const NoTrackWidget(),
+      builder: (BuildContext context, isMuted, child) =>
+          !isMuted && trackCtx.videoTrack != null
+              ? Container(
+                  color: primaryColor,
+                  child: VideoTrackRenderer(
+                    trackCtx.videoTrack!,
+                    key: ValueKey(sid),
+                    fit: fit,
+                  ),
+                )
+              : const NoTrackWidget(),
     );
   }
 }
