@@ -28,10 +28,12 @@ class VideoTrackWidget extends StatelessWidget {
     super.key,
     this.primaryColor = LKColors.lkDarkBlue,
     this.fit = rtc.RTCVideoViewObjectFit.RTCVideoViewObjectFitContain,
+    this.renderMode,
   });
 
   final Color primaryColor;
   final rtc.RTCVideoViewObjectFit fit;
+  final VideoRenderMode? renderMode;
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +56,7 @@ class VideoTrackWidget extends StatelessWidget {
                     trackCtx.videoTrack!,
                     key: ValueKey(sid),
                     fit: fit,
+                    renderMode: renderMode ?? VideoRenderMode.auto,
                   ),
                 )
               : const NoTrackWidget(),
