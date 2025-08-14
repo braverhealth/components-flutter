@@ -14,7 +14,6 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:flutter_webrtc/flutter_webrtc.dart' as rtc;
 import 'package:livekit_client/livekit_client.dart';
 import 'package:provider/provider.dart';
 
@@ -27,12 +26,12 @@ class VideoTrackWidget extends StatelessWidget {
   const VideoTrackWidget({
     super.key,
     this.primaryColor = LKColors.lkDarkBlue,
-    this.fit = rtc.RTCVideoViewObjectFit.RTCVideoViewObjectFitContain,
+    this.fit = VideoViewFit.contain,
     this.renderMode,
   });
 
   final Color primaryColor;
-  final rtc.RTCVideoViewObjectFit fit;
+  final VideoViewFit fit;
   final VideoRenderMode? renderMode;
 
   @override
