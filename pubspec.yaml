@@ -12,11 +12,17 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_background: ^1.3.0+1
-  flutter_webrtc: ^1.0.0
+  flutter_webrtc:
+    git:
+      url: git@github.com:braverhealth/flutter-webrtc.git
+      ref: feature/pip-support
   google_fonts: ^6.2.1
   http: ^1.2.2
-  intl: 
-  livekit_client: 
+  intl:
+  livekit_client:
+    git:
+      url: https://github.com/braverhealth/client-sdk-flutter.git
+      ref: 9c85432652c33bf02fbf69a1c0aefb95f2bcf25f
   provider: ^6.1.2
   responsive_builder: ^0.7.1
 
