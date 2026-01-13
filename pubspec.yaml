@@ -22,7 +22,7 @@ dependencies:
   livekit_client:
     git:
       url: https://github.com/braverhealth/client-sdk-flutter.git
-      ref: philippe/support-pip
+      ref: philippe/pip-support-2
   provider: ^6.1.2
   responsive_builder: ^0.7.1
 
