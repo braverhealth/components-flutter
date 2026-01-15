@@ -19,6 +19,7 @@ dependencies:
   google_fonts: ^6.2.1
   http: ^1.2.2
   intl:
+# This is a fork of livekit_client that includes pip support.
   livekit_client:
     git:
       url: https://github.com/braverhealth/client-sdk-flutter.git
